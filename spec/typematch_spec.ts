@@ -1,21 +1,22 @@
-'use strict'
-const tm = require('../bin/typematch');
+/// <reference path="../typings/jasmine/jasmine.d.ts" />
+
+import {match} from '../src/typematch'
 
 describe('the TypeMatch module', () => {
-	it('is an object', () => {
-		expect(tm).not.toBeNull();
+	it('exists', () => {
+		expect(match).not.toBeNull();
 	});
 	
 	it('makes a simple assertion', () => {
-		let result = tm.match('it is',
+		let result = match('it is',
 			['it is', () => 'correct']);
 		expect(result).toEqual('correct');
 	});
 	
 	it('accepts multiple assertions', () => {
-		let result = tm.match(1,
+		let result = match(1,
 			[0, () => 'nope'],
 			[1, () => 'yes']);
 		expect(result).toEqual('yes');
-	})
+	});
 })
