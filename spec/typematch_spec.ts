@@ -1,6 +1,6 @@
 /// <reference path="../typings/jasmine/jasmine.d.ts" />
 
-import {match} from '../src/typematch'
+import {match, _} from '../src/typematch'
 
 describe('the TypeMatch module', () => {
 	it('exists', () => {
@@ -18,5 +18,12 @@ describe('the TypeMatch module', () => {
 			[0, () => 'nope'],
 			[1, () => 'yes']);
 		expect(result).toEqual('yes');
+	});
+	
+	it('it has wildcarts', () => {
+		let result = match('yolo',
+			['hi', () => 'there'],
+			[_, () => 'good bye']);
+		expect(result).toEqual('good bye');
 	});
 })
