@@ -20,5 +20,13 @@
   "bugs": {
     "url": "https://github.com/thalesmello/typematch/issues"
   },
-  "homepage": "https://github.com/thalesmello/typematch#readme"
+  "homepage": "https://github.com/thalesmello/typematch#readme",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-jasmine": "^2.2.1",
+    "gulp-typescript": "^2.9.2",
+    "jasmine": "^2.3.2",
+    "tsd": "^0.6.5",
+    "typescript": "^1.6.2"
+  }
 }
