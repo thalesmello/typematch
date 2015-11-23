@@ -1,0 +1,24 @@
+{
+  "name": "typematch",
+  "version": "0.0.1",
+  "description": "A small TypeScript library to do pattern matching",
+  "main": "typematch.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thalesmello/typematch.git"
+  },
+  "keywords": [
+    "typescript",
+    "pattern",
+    "matching"
+  ],
+  "author": "Thales Mello",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thalesmello/typematch/issues"
+  },
+  "homepage": "https://github.com/thalesmello/typematch#readme"
+}
