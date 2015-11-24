@@ -4,10 +4,13 @@ var jasmine = require('gulp-jasmine');
 var merge = require('merge2');
 
 
-var buildProject = ts.createProject({
+var tsOpts = {
 	module: 'commonjs',
-	declaration: true
-});
+	target: 'ES5',
+	declaration: true,
+}
+
+var buildProject = ts.createProject(tsOpts);
 
 gulp.task('build', () => {
 	var tsStream = gulp.src('src/**/*.ts')
@@ -24,9 +27,7 @@ gulp.task('test', ['build', 'build_test'], () => {
 		.pipe(jasmine());
 });
 
-var specProject = ts.createProject({
-	module: 'commonjs',
-});
+var specProject = ts.createProject(tsOpts);
 
 gulp.task('build_test', () => {
 	return gulp.src('spec/**/*_spec.ts')
