@@ -69,6 +69,6 @@ export function match1<T1, TResp>(v1: T1, ...conditions: [Check<T1>, (v1?: T1) =
 	return matchAny([v1], ...conditions.map((checks) => extractChecks(checks)))
 };
 
-export function match2<T1, T2, TResp>(v1: T1, v2: T2, ...conditions: [Check<T1>, Check<T2>, (T1?, T2?) => TResp][]){
-	return matchAny([v1, v2], ...conditions.map((checks) => extractChecks(checks)))
+export function match2<T1, T2, TResp>(v1: T1, v2: T2, ...conditions: [Check<T1>, Check<T2>, (v1?: T1, v2?: T2) => TResp][]){
+	return matchAny([v1, v2], ...conditions.map((checks) => extractChecks<T1|T2, TResp>(checks)))
 }

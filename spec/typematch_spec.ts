@@ -44,5 +44,23 @@ describe('module with variadic args', () => {
 		let result = tm.match2('foo', 'bar',
 			['foo', _, () => 'yes!']);
 		expect(result).toEqual('yes!');
+		
+		let result2 = tm.match2(1, 2,
+			[0, 1, () => 'wrong'],
+			[0, 0, () => 'wrong too'],
+			[1, 2, () => 'correct']);
+		expect(result2).toEqual('correct');
+	})
+	
+	it('implements fizzbuzz', () => {
+		function fizzbuzz(n: number) {
+			return tm.match2(n % 3, n % 5,
+				[0, 0, () => 'fizzbuzz'],
+				[0, _, () => 'fizz'],
+				[_, 0, () => 'buzz'],
+				[_, _, () => '']);
+		}
+		expect(fizzbuzz(15)).toEqual('fizzbuzz');
+		expect(fizzbuzz(14)).toEqual('');
 	})
 })
