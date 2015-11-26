@@ -2,12 +2,14 @@ var gulp = require('gulp');
 var ts = require('gulp-typescript');
 var jasmine = require('gulp-jasmine');
 var merge = require('merge2');
+var notify = require('gulp-notify');
 
 
 var tsOpts = {
 	module: 'commonjs',
 	target: 'ES5',
 	declaration: true,
+	noEmitOnError: true
 }
 
 var buildProject = ts.createProject(tsOpts);
@@ -24,7 +26,9 @@ gulp.task('build', () => {
 
 gulp.task('test', ['build', 'build_test'], () => {
 	return gulp.src('bin/spec/*_spec.js')
-		.pipe(jasmine());
+		.pipe(jasmine())
+		.on("error", notify.onError("Error: <%= error.message %>"))
+		.pipe(notify('done'));
 });
 
 var specProject = ts.createProject(tsOpts);
@@ -37,4 +41,4 @@ gulp.task('build_test', () => {
 
 gulp.task('watch', ['test'], () => {
 	gulp.watch(['spec/**/*_spec.ts', 'src/**/*.ts'], ['test']);
-})
+});
