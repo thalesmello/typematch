@@ -3,7 +3,7 @@
   "version": "0.5.0",
   "description": "A small TypeScript library to do pattern matching",
   "main": "bin/src/typematch",
-  "typings": "bin/src/bundle.d.ts",
+  "typings": "bin/src/typematch.d.ts",
   "scripts": {
     "prepublish": "gulp build",
     "build": "gulp build",
