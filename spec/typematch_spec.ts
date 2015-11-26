@@ -62,5 +62,55 @@ describe('module with variadic args', () => {
 		}
 		expect(fizzbuzz(15)).toEqual('fizzbuzz');
 		expect(fizzbuzz(14)).toEqual('');
+	});
+	
+	it('accepts three arguments', () => {
+		let result = tm.match3(1, 2, 3,
+			[_, _, _, () => 'such match']);
+		expect(result).toEqual('such match');
+	})
+	
+	it('accepts four arguments', () => {
+		let result = tm.match4(1, 2, 3, 4,
+			[1, 2, 3, 5, () => 0],
+			[_, _, _, 4, (a, b, c, d) => a + b + c + d]);
+		expect(result).toEqual(10);
+	});
+	
+	it('accepts five arguments', () => {
+		let result = tm.match5('a', 'b', 'c', 'd', 'e',
+			[_, _, 'c', _, _, () => 'yes']);
+		expect(result).toEqual('yes');
+	})
+	
+	it('accepts six arguments', () => {
+		let result = tm.match6('a', 'b', 'c', 'd', 'e', 1,
+			[_, _, 'c', _, _, 1, () => 'yes']);
+		expect(result).toEqual('yes');
+	})
+	
+	it('accepts seven arguments', () => {
+		let result = tm.match7('a', 'b', 'c', 'd', 'e', 1, 10,
+			[_, _, 'c', _, _, 1, _, () => 'yes']);
+		expect(result).toEqual('yes');
+	});
+	
+	it('accepts eight arguments', () => {
+		let result = tm.match8('a', 'b', 'c', 'd', 'e', 1, 10, true,
+			[_, _, 'c', _, _, 1, _, true, () => 'yes']);
+		expect(result).toEqual('yes');
+	});
+	
+	it('accepts nine arguments', () => {
+		let result = tm.match9(1, 2, 3, 4, 5, 6, 7, 8, 9,
+			[1, 2, 3, 4, 5, 6, 7, 8, 9, (a, b, c, d, e, f, g, h, i) => a + b + c + d + e + f + g + h + i])
+		expect(result).toEqual(45);
+	})
+	
+	it('accepts ten arguments', () => {
+		let result = tm.match10(1, 2, 3, 4, false, 6, 7, 8, 9, 10,
+			[1, 2, 3, 4, true, 6, 7, 8, 9, _, () => -1],
+			[1, 2, 3, 4, false, 6, _, 8, 9, _, (a, b, c, d, e, f, g, h, i, j) => a + b + c + d + f + g + h + i])
+		expect(result).toEqual(40);
 	})
 })
