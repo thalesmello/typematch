@@ -2,7 +2,8 @@
   "name": "typematch",
   "version": "0.2.0",
   "description": "A small TypeScript library to do pattern matching",
-  "main": "bin/src/typematch.js",
+  "main": "bin/src/typematch",
+  "typings": "bin/src/typematch.d.ts",
   "scripts": {
     "prepublish": "gulp build",
     "build": "gulp build",
