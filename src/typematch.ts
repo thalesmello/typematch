@@ -39,15 +39,6 @@ function toList<TValue>(values: Multi<TValue>): TValue[] {
 
 export type Check<TValue> = TValue|Wildcard
 
-export function match<T1, TResp>(value: T1, ...conditions: [Check<T1>, (TValue?) => TResp][]){
-	for(let [check, returnFunc] of conditions) {
-		let checks = toList(check);
-		if(checkEquals([value], checks)) {
-			return returnFunc(value);
-		}
-	}
-}
-
 export function matchAny<TVal, TResp>(values: TVal[], ...conditions: [Check<TVal>[], (...vals: TVal[]) => TResp][]): TResp{
 	for(let [checks, returnFunc] of conditions) {
 		if(checkEquals(values, checks)) {
