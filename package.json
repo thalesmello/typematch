@@ -1,6 +1,6 @@
 {
   "name": "typematch",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "A small TypeScript library to do pattern matching",
   "main": "bin/src/typematch",
   "typings": "bin/src/typematch.d.ts",
