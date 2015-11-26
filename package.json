@@ -2,9 +2,11 @@
   "name": "typematch",
   "version": "0.0.1",
   "description": "A small TypeScript library to do pattern matching",
-  "main": "typematch.js",
+  "main": "bin/src/typematch.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepublish": "gulp build",
+    "build": "gulp build",
+    "test": "gulp test"
   },
   "repository": {
     "type": "git",
