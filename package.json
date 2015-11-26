@@ -3,7 +3,7 @@
   "version": "0.4.0",
   "description": "A small TypeScript library to do pattern matching",
   "main": "bin/src/typematch",
-  "typings": "bin/src/typematch.d.ts",
+  "typings": "bin/src/bundle.d.ts",
   "scripts": {
     "prepublish": "gulp build",
     "build": "gulp build",
@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/thalesmello/typematch#readme",
   "devDependencies": {
+    "dts-bundle": "^0.3.0",
     "gulp": "^3.9.0",
     "gulp-jasmine": "^2.2.1",
     "gulp-notify": "^2.2.0",
