@@ -56,3 +56,13 @@ var _ = tm._;
 	console.log(result); // static typescript
 }
 ```
+
+## Type safety using JavaScript
+
+You can use this library with JavaScript and have code completion with Visual Studio Code.
+
+To do so, just include reference to the typings definition on the top of your code.
+
+```
+/// <reference path="node_modules/typematch/bin/src/bundle.d.ts" />
+```
