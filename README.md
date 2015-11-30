@@ -22,6 +22,14 @@ var _ = tm._;
 }
 
 {
+	// You can use union types by passing generics arguments
+	let result = tm.match1<number, number|string>(1,
+		[0, () => 0],
+		[1, () => 'string']);
+	console.log(result); // string
+}
+
+{
 	let result = tm.match2('two', 'arguments',
 		['statically', 'checked', () => '=D'],
 		[_, 'arguments', () => 'you can use wildcards'])
